@@ -1,0 +1,61 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'propietarios')}">
+
+<body>
+
+  <h2>
+    <th:block th:if="${visita['nueva']}">Nueva </th:block>
+    Visita
+  </h2>
+
+  <b>Mascota</b>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha Nacimiento</th>
+        <th>Tipo</th>
+        <th>Propietario</th>
+      </tr>
+    </thead>
+    <tr>
+      <td th:text="${mascota.nombre}" /></td>
+      <td
+        th:text="${#temporals.format(mascota.fechaNacimiento, 'yyyy-MM-dd')}" /></td>
+      <td th:text="${mascota.tipo}" /></td>
+      <td
+        th:text="${mascota.propietario?.nombre + ' ' + mascota.propietario?.apellidos}" /></td>
+    </tr>
+  </table>
+
+  <form th:object="${visita}" class="form-horizontal" method="post">
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('Fecha', 'fecha', 'date')}"  />
+      <input
+        th:replace="~{fragments/inputField :: input ('Descripción', 'descripcion', 'text')}" />
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="hidden" name="mascotaId" th:value="${mascota.id}" />
+        <button class="btn btn-default" type="submit">Añadir Visita</button>
+      </div>
+    </div>
+  </form>
+
+  <br />
+  <b>Visitas Previas</b>
+  <table class="table table-striped">
+    <tr>
+      <th>Fecha</th>
+      <th>Descripción</th>
+    </tr>
+    <tr th:if="${!visita['nueva']}" th:each="visit : ${mascota.visitas}">
+      <td th:text="${#temporals.format(visita.fecha, 'yyyy-MM-dd')}" /></td>
+      <td th:text=" ${visita.descripcion}" /></td>
+    </tr>
+  </table>
+
+</body>
+</html>

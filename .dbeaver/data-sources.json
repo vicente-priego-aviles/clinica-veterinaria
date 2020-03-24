@@ -1,0 +1,82 @@
+{
+	"folders": {},
+	"connections": {
+		"h2_embedded-170d9ba4f42-495507e6b4788e2e": {
+			"provider": "generic",
+			"driver": "h2_embedded",
+			"name": "H2 Embedded - Nueva conexón",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"url": "jdbc:h2:~/BBDD/H2/clinica_veterinaria/datos",
+				"type": "dev",
+				"handlers": {}
+			}
+		}
+	},
+	"virtual-models": {
+		"h2_embedded-170d9ba4f42-495507e6b4788e2e": {
+			"PUBLIC": {
+				":MASCOTA": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"MASCOTA\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"MASCOTA\" fq-name=\"PUBLIC.MASCOTA\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"304\" y=\"158\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"PROPIETARIO\" fq-name=\"PUBLIC.PROPIETARIO\" order=\"1\" x=\"659\" y=\"20\"><path name=\"PUBLIC\"/></entity><entity id=\"3\" name=\"TIPO\" fq-name=\"PUBLIC.TIPO\" order=\"2\" x=\"659\" y=\"276\"><path name=\"PUBLIC\"/></entity><entity id=\"4\" name=\"VISITA\" fq-name=\"PUBLIC.VISITA\" order=\"3\" x=\"20\" y=\"167\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_VISITA_MASCOTA\" fq-name=\"PUBLIC.VISITA.FK_VISITA_MASCOTA\" type=\"fk\" pk-ref=\"1\" fk-ref=\"4\"/><relation name=\"FK_MASCOTA_PROPIETARIO\" fq-name=\"PUBLIC.MASCOTA.FK_MASCOTA_PROPIETARIO\" type=\"fk\" pk-ref=\"2\" fk-ref=\"1\"/><relation name=\"FK_MASCOTA_TIPO\" fq-name=\"PUBLIC.MASCOTA.FK_MASCOTA_TIPO\" type=\"fk\" pk-ref=\"3\" fk-ref=\"1\"/></relations></diagram>"
+						}
+					}
+				},
+				":PROPIETARIO": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"PROPIETARIO\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"PROPIETARIO\" fq-name=\"PUBLIC.PROPIETARIO\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"375\" y=\"20\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"MASCOTA\" fq-name=\"PUBLIC.MASCOTA\" order=\"1\" x=\"20\" y=\"68\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_MASCOTA_PROPIETARIO\" fq-name=\"PUBLIC.MASCOTA.FK_MASCOTA_PROPIETARIO\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/></relations></diagram>"
+						}
+					}
+				},
+				":ESPECIALIDAD": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"ESPECIALIDAD\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"ESPECIALIDAD\" fq-name=\"PUBLIC.ESPECIALIDAD\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"329\" y=\"20\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"VETERINARIO_ESPECIALIDAD\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD\" order=\"1\" x=\"20\" y=\"20\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_VETERINARIO_ESPECIALIDAD_ESPECIALIDAD\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD.FK_VETERINARIO_ESPECIALIDAD_ESPECIALIDAD\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/></relations></diagram>"
+						}
+					}
+				},
+				":TIPO": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"TIPO\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"TIPO\" fq-name=\"PUBLIC.TIPO\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"375\" y=\"48\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"MASCOTA\" fq-name=\"PUBLIC.MASCOTA\" order=\"1\" x=\"20\" y=\"20\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_MASCOTA_TIPO\" fq-name=\"PUBLIC.MASCOTA.FK_MASCOTA_TIPO\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/></relations></diagram>"
+						}
+					}
+				},
+				":VETERINARIO": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"VETERINARIO\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"VETERINARIO\" fq-name=\"PUBLIC.VETERINARIO\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"329\" y=\"20\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"VETERINARIO_ESPECIALIDAD\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD\" order=\"1\" x=\"20\" y=\"96\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_VETERINARIO_ESPECIALIDAD_VETERINARIO\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD.FK_VETERINARIO_ESPECIALIDAD_VETERINARIO\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/></relations></diagram>"
+						}
+					}
+				},
+				":VETERINARIO_ESPECIALIDAD": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"VETERINARIO_ESPECIALIDAD\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"VETERINARIO_ESPECIALIDAD\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD\" order=\"0\" color-bg=\"138,226,52\" border-width=\"3\" x=\"20\" y=\"110\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"ESPECIALIDAD\" fq-name=\"PUBLIC.ESPECIALIDAD\" order=\"1\" x=\"329\" y=\"20\"><path name=\"PUBLIC\"/></entity><entity id=\"3\" name=\"VETERINARIO\" fq-name=\"PUBLIC.VETERINARIO\" order=\"2\" x=\"329\" y=\"124\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_VETERINARIO_ESPECIALIDAD_ESPECIALIDAD\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD.FK_VETERINARIO_ESPECIALIDAD_ESPECIALIDAD\" type=\"fk\" pk-ref=\"2\" fk-ref=\"1\"/><relation name=\"FK_VETERINARIO_ESPECIALIDAD_VETERINARIO\" fq-name=\"PUBLIC.VETERINARIO_ESPECIALIDAD.FK_VETERINARIO_ESPECIALIDAD_VETERINARIO\" type=\"fk\" pk-ref=\"3\" fk-ref=\"1\"/></relations></diagram>"
+						}
+					}
+				},
+				":VISITA": {
+					"properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"VISITA\" time=\"202003141650\"><entities><data-source id=\"h2_embedded-170d9ba4f42-495507e6b4788e2e\"><entity id=\"1\" name=\"VISITA\" fq-name=\"PUBLIC.VISITA\" order=\"0\" color-bg=\"114,159,207\" border-width=\"3\" x=\"20\" y=\"29\"><path name=\"PUBLIC\"/></entity><entity id=\"2\" name=\"MASCOTA\" fq-name=\"PUBLIC.MASCOTA\" order=\"1\" x=\"304\" y=\"20\"><path name=\"PUBLIC\"/></entity></data-source></entities><relations><relation name=\"FK_VISITA_MASCOTA\" fq-name=\"PUBLIC.VISITA.FK_VISITA_MASCOTA\" type=\"fk\" pk-ref=\"2\" fk-ref=\"1\"/></relations></diagram>"
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}

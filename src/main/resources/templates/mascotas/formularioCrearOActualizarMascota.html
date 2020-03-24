@@ -1,0 +1,38 @@
+formularioCrearOActualiza<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'propietarios')}">
+
+<body>
+
+  <h2>
+    <th:block th:if="${mascota['nueva']}">Nueva </th:block>
+    Mascota
+  </h2>
+  <form th:object="${mascota}" class="form-horizontal" method="post">
+    <input type="hidden" name="id" th:value="*{id}" />
+    <div class="form-group has-feedback">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Proipietario</label>
+        <div class="col-sm-10">
+          <span th:text="${mascota.propietario?.nombre + ' ' + mascota.propietario?.apellidos}" />
+        </div>
+      </div>
+      <input
+        th:replace="~{fragments/inputField :: input ('Nombre', 'nombre', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Fecha Nacimiento', 'fechaNacimiento', 'date')}" />
+      <input
+        th:replace="~{fragments/selectField :: select ('Tipo', 'tipo', ${tipos})}" />
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${mascota['nueva']} ? 'Añadir Mascota' : 'Actualizar Mascota'"
+          class="btn btn-default" type="submit" th:text="${text}">Añadir
+          Mascota</button>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
